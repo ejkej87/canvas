@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.container {
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    border: 1px solid black;
+}
+
+.tools {
+    height: 600px;
+    border: 2px solid #000;
+}
+
+.color_picker,
+.brush_width {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+}
+
+.color_picker {
+    flex-wrap: wrap;
+}
+
+.color_picker button {
+    width: 50%;
+    border: none
+}
+
+.brush_width {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button[data-color="red"] {
+    background: red
+}
+
+button[data-color="yellow"] {
+    background: yellow
+}
+
+button[data-color="green"] {
+    background: green
+}
+
+button[data-color="blue"] {
+    background: blue
+}
