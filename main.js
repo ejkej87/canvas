@@ -1,14 +1,11 @@
 const colorPicker = document.querySelector('#colorPicker')
 const brushWidth = document.querySelector('#brushWidth')
 const container = document.querySelector('.container')
-const clear = document.querySelector('#clear')
-let canvas = document.createElement("canvas")
+const clearButton = document.querySelector('#clear')
+const canvas = document.querySelector("#canvas")
 
-canvas.style.border = "2px solid #000"
-document.body.appendChild(canvas)
-
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+// canvas.width = window.innerWidth 
+// canvas.height = window.innerHeight
 
 let context = canvas.getContext("2d")
 
@@ -66,6 +63,6 @@ canvas.addEventListener("mouseup", () => {
     isMouseDown = false
 })
 
-clear.addEventListener('click', () => {
+clearButton.addEventListener('click', () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
 })
