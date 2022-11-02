@@ -1,8 +1,8 @@
-const colorPicker = document.querySelector('#colorPicker')
-const brushWidth = document.querySelector('#brushWidth')
+const colorPicker = document.getElementById('#colorPicker')
+const brushWidth = document.getElementById('#brushWidth')
 const container = document.querySelector('.container')
-const clearButton = document.querySelector('#clear')
-const canvas = document.querySelector("#canvas")
+const clearButton = document.getElementById('#clear')
+const canvas = document.getElementById("#canvas")
 const rect = canvas.getBoundingClientRect()
 const buttons = document.querySelectorAll('.color_picker button')
 console.log(rect)
@@ -20,7 +20,7 @@ let previous = {
     y: 0
 }
 
-Array.from(buttons).forEach((button) => {
+buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         context.strokeStyle = e.currentTarget.dataset.color
     })
@@ -68,3 +68,17 @@ canvas.addEventListener("mouseup", () => {
 clearButton.addEventListener('click', () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
 }, false)
+
+// validation max input value
+
+brushWidth.addEventListener('input', e => {
+    const el = e.target || e
+
+    if (el.type == "number" && el.max && el.min) {
+        let value = parseInt(el.value)
+        let max = parseInt(el.max)
+        let min = parseInt(el.min)
+        if (value > max) el.value = el.max
+        if (value < min) el.value = el.min
+    }
+});
