@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="main.js" defer></script> -->
     <script src="main.js" defer></script>
     <title>Canvas</title>
 </head>
@@ -14,18 +15,17 @@
     <button id="clear">Clear Canvas</button>
     <div class="tools">
         <div class="color_picker">
-            <!-- <label for="head">Choose your color:</label>
-            <input type="color" id="colorPicker"> -->
             <button data-color="red">Red</button>
             <button data-color="yellow">Yellow</button>
             <button data-color="green">Green</button>
             <button data-color="blue">Blue</button>
         </div>
         <div class="brush_width">
-            <label for="head">Brush width from 1 to 10:</label>
-            <input type="number" min="1" max="10" placeholder="1-10" id="brushWidth">
+            <label for="number">Brush width from 1 to 10:</label>
+            <input type="number" min="1" max="10" id="brushWidth">
         </div>
     </div>
+    <canvas id="canvas" width="1200" height="800" width="pixels" height="pixels"></canvas>
 </body>
 
 </html>
