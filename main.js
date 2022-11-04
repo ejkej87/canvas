@@ -3,12 +3,9 @@ const brushWidth = document.getElementById('brushWidth')
 const container = document.querySelector('.container')
 const clearButton = document.getElementById('clear')
 const canvas = document.getElementById('canvas')
-// const rect = canvas.getBoundingClientRect()
+let rect = canvas.getBoundingClientRect()
 const buttons = document.querySelectorAll('.color_picker button')
-// console.log(rect)
-
-// canvas.width = window.innerWidth
-// canvas.height = window.innerHeight
+console.log(rect)
 
 let context = canvas.getContext('2d')
 
@@ -29,8 +26,7 @@ buttons.forEach(button => {
 window.addEventListener('resize', resizeCanvas, false)
 
 function resizeCanvas () {
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
+  rect = canvas.getBoundingClientRect()
 }
 
 canvas.addEventListener(
@@ -39,9 +35,9 @@ canvas.addEventListener(
     if (isMouseDown) {
       let { pageX: x, pageY: y } = event
       context.beginPath()
-      context.moveTo(previous.x, previous.y)
+      context.moveTo(previous.x - rect.left, previous.y - rect.top)
       context.lineWidth = brushWidth.value.toString()
-      context.lineTo(x, y)
+      context.lineTo(x - rect.left, y - rect.top)
       context.stroke()
 
       previous = {
